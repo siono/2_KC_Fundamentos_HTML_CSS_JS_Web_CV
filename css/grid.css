@@ -1,0 +1,90 @@
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+body {
+    --grid-number: 12;
+}
+
+
+.col-1 {
+    width: calc(100% / 12);
+    float: left;
+}
+
+.col-2 {
+    width: calc(calc(100% / 12) * 2);
+    float: left;
+}
+
+.col-3 {
+    width: calc(calc(100% / 12) * 3);
+    float: left;
+}
+
+.col-4 {
+    width: calc(calc(100% / var(--grid-number)) * 4);
+    float: left;
+}
+
+.col-5 {
+    width: calc(calc(100% / 12) * 5);
+    float: left;
+}
+
+.col-6 {
+    width: calc(calc(100% / 12) * 6);    
+    float: left;
+}
+
+.col-7 {
+    width: calc(calc(100% / 12) * 7);
+    float: left;
+}
+
+.col-8 {
+    width: calc(calc(100% / 12) * 8);
+    float: left;
+}
+
+.col-9 {
+    width: calc(calc(100% / 12) * 9);
+    float: left;
+}
+
+.col-10 {
+    width: calc(calc(100% / 12) * 10);
+    float: left;
+}
+
+.col-11 {
+    width: calc(calc(100% / 12) * 11);
+    float: left;
+}
+
+.col-12 {
+   width: calc(calc(100% / 12) * 12); 
+   float: left;
+}
+
+
+/************* FLEXBOX *************/
+
+.row-flex {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.transport-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.transport-info {
+    align-self: flex-end;
+}

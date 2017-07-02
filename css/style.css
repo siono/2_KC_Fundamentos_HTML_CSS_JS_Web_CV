@@ -1,0 +1,126 @@
+*{
+    margin:0;
+    font-family: 'Zilla Slab', serif;
+}
+
+
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+/************* HEADER ****************/
+.header{
+    background: url("../images/background-img.jpg") no-repeat center top;
+    height: 100vh;
+}
+
+.banner{
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 6em;
+}
+
+.banner img{
+    border: 7px solid #E8AD08;
+    border-radius: 50%;
+    
+}
+
+.banner > h1{
+    color:white;
+    margin: 0.4em 0em;
+    letter-spacing: 6px;
+    
+}
+
+.banner > span {
+    color: #E8AD08;
+    letter-spacing: 4px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+/********************** MENU *******************/
+
+.navbar{
+    position:fixed;
+    width: 100%;
+    height: 4em;
+    background-color: #E8AD08;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.top{
+    top: 0;
+}
+
+.bottom{
+    bottom:0;
+}
+
+.navbar a {
+   text-decoration: none; 
+   color: #333;
+}
+
+.navbar> .navbar-list{
+    list-style-type: none;
+    display: flex;
+}
+
+.navbar> .navbar-list > .navbar-item a{
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+
+.navbar> .navbar-list > .navbar-item a:hover{
+    color: #333;
+}
+
+.navbar-logo{
+   font-family: 'Amatic SC', cursive;
+    font-size: 2em;
+}
+
+
+/*************** SOCIAL LINKS **************/
+
+.social-links{
+    display:flex;
+    list-style-type: none;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.social-links > li{
+    
+    margin-right: 19px;
+    line-height: 36px;
+    width: 36px;
+    border: 2px solid white;
+    border-radius:50%;
+    
+}
+
+.social-links a{
+    text-decoration: none;
+    color:white;
+    width: 36px;
+    
+}
+
+.social-links a:hover{ 
+    color: #E8AD08;
+}
+
