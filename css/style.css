@@ -1,6 +1,9 @@
 *{
     margin:0;
     font-family: 'Zilla Slab', serif;
+    box-sizing: border-box; /* el padding y border de ese elemento no incrementan su ancho */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box; 
 }
 
 
@@ -124,3 +127,60 @@
     color: #E8AD08;
 }
 
+/************* FLEXBOX *************/
+
+.row-flex {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.transport-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.transport-info {
+    align-self: flex-end;
+}
+
+
+/************* QUIEN SOY **************/
+
+.who-i-am > header {
+    text-align: center;
+    padding: 4em 0;
+}
+
+.who-i-am > header > h3 {
+    font-size: 3.5em;
+}
+
+.who-i-am > header > span {
+    color: #E8AD08;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+}
+
+.who-i-am > .person-image > img {
+    width: 100%;
+}
+
+.info-about-me > .item-interest{
+    padding: 1em 0;
+    border-bottom: 1px dashed #333;
+}
+
+.info-about-me > .item-interest > p {
+    padding-top: 1em;
+}
+
+.info-about-me > .item-interest > h4 {
+    font-size: 1.6em;
+    margin: 0;
+    color: #E8AD08;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
