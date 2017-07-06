@@ -19,7 +19,7 @@
             <img src="./images/me.jpg" alt="José Carlos Esteban">
             <h1>José Carlos Esteban</h1>
             <span>Programador / Futuro Desarrollador Web</span>
-            <ul class="social-links">
+            <ul class="social-links bounceInDown">
 				<li><a href="#" class="fa fa-twitter"></a></li>
 				<li><a href="#" class="fa fa-linkedin"></a></li>
 				<li><a href="#" class="fa fa-google-plus"></a></li>
@@ -27,7 +27,7 @@
         </div>
     </header>
 
-    <nav class="navbar bottom">
+    <nav id="menu" class="navbar top">
         <div class="logo">
             <h2>
                 <a class="navbar-logo" href="index.html">Info --></a>
@@ -35,19 +35,19 @@
         </div>
         <ul class="navbar-list">
             <li class="navbar-item active">
-                <a href>Inicio</a>
+                <a href="#">Inicio</a>
             </li>
             <li class="navbar-item">
-                <a href>Quien soy</a>
+                <a href="#quien-soy">Quien soy</a>
             </li>
             <li class="navbar-item">
-                <a href>Estudios</a>
+                <a href="#estudios">Estudios</a>
             </li>
             <li class="navbar-item">
-                <a href>Experiencia</a>
+                <a href="#experiencia">Experiencia</a>
             </li>
             <li class="navbar-item">
-                <a href>Sobre mi</a>
+                <a href="#sobre-mi">Sobre mi</a>
             </li>
             <li class="navbar-item">
                 <a href="contact.html">Contacto</a>
@@ -58,7 +58,7 @@
 
     
     <main class="container">
-        <section class="who-i-am col-12">
+        <section id="quien-soy" class="who-i-am col-12">
         <header>
             <h3>Quien soy</h3>
             <span>Algo mas de información</span>
@@ -68,7 +68,7 @@
         </div>
         <div class="info-about-me col-7">
             <div class="item-interest">
-                <h4>Trabajo</h4>
+                <h4>Experto</h4>
                 <p>Programador / Desarrollador Web</>
             </div>
             <div class="item-interest">
@@ -89,20 +89,138 @@
             </div>
         </div>
         </section>
-        <section class="studies">
-
+        <section id="estudios" class="studies">
+            <header>
+                <h3>Formación académica</h3>
+            </header>
+            <div class="container">
+                <div class="item-studies col-6">
+                    <i class="fa fa-graduation-cap fa-3x" aria-hidden="true"></i>
+                    <h4>Licenciado en Informática</h4>
+                    <div>
+                        <span>2012</span>
+                    </div>
+                </div>
+                <div class="item-studies col-6">
+                    <i class="fa fa-graduation-cap fa-3x" aria-hidden="true"></i>
+                    <h4>Diplomado en Ingeniería Técnica de Gestión</h4>
+                    <div>
+                        <span>2009</span>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section class="experience">
-
+        <section id="experiencia" class="experience col-12">
+            <header>
+                <h3>Experiencia</h3>
+            </header>
+            <div class="content-experience col-12">
+                <div class="item-experience col-12">
+                    <div class="stage col-2" >
+        
+                        <h5>Ibermatica</h5>
+                    </div>
+                    <div class="date" >
+                        <h3>2013 - Actualidad</h3>
+                
+                    </div>
+                    <div class="description col-10">
+                        <h4>Responsable de QA</h4>
+                        <div>
+                            <p>Trabajando para el cliente: <span>Vocento</span>. </p>
+                            <p>Desarrollo de plan de pruebas en los diferentes proyectos del cliente.</p>
+                            <p>Automatización de pruebas con Sellenium </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-experience col-12">
+                    <div class="stage col-2" >
+        
+                        <h5>Cas Training</h5>
+                    </div>
+                    <div class="date" >
+                        <h3>2012 - 2013</h3>
+                
+                    </div>
+                    <div class="description col-10">
+                        <h4>Desarrollador</h4>
+                        <div>
+                            <p>Realización de labores de IT y soporte a usuarios.</p>
+                            <p>Desarrollo de aplicaciones web e intranet.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-experience col-12">
+                    <div class="stage col-2" >
+        
+                        <h5>Economato.com</h5>
+                    </div>
+                    <div class="date" >
+                        <h3>2011 - 2012</h3>
+                
+                    </div>
+                    <div class="description col-10">
+                        <h4>Desarrollador</h4>
+                        <div>
+                            <p>Realización de la web del Economato del funcionario tanto la parte front-end (html, css, javascript) como la parte back-end a través de servlets con tomcat y JSP, teniendo en cuenta navegación segura con certificado https.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section class="about-me">
+        <section id="sobre-mi" class="about-me col-12">
+            <header>
+                <h3>Sobre mi</h3>
+                <span>Intereses</span>
+                
+            </header>
+            <div class="video-about-me col-5">
+                <video width="100%" height="300px" controls>
+                        <source src="./video/batman.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="about-me-description col-7">
+                
+             <div class="container-interest">   
+                <div class="item-interest">
+                    <i class="fa fa-futbol-o fa-4x" aria-hidden="true"></i>
+                    <h5>Fútbol</h5>    
+                </div>
 
+                <div class="item-interest">
+                    <i class="fa fa-plane fa-4x" aria-hidden="true"></i>
+                    <h5>Viajar</h5>
+                </div>
+                
+                <div class="item-interest">
+                    <i class="fa fa-television fa-4x" aria-hidden="true"></i>
+                    <h5>Series TV</h5>
+                </div>
+
+                <div class="item-interest">
+                    <i class="fa fa-music fa-4x" aria-hidden="true"></i>
+                    <h5>Musica</h5>
+                </div>
+
+               
+                </div>
+
+            </div>
         </section>
         
     </main>
 
     <footer class="footer">
-            
+            <span> José Carlos Esteban &copy; 2017  </span>
+          
+            <ul class="social-links">
+				<li><a href="#" class="fa fa-twitter"></a></li>
+				<li><a href="#" class="fa fa-linkedin"></a></li>
+				<li><a href="#" class="fa fa-google-plus"></a></li>
+			</ul>
+          
     </footer>
 </body>
+<script src="./js/menu-block.js"></script>
+<script src="./js/menu.js"></script>
 </html>

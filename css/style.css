@@ -1,11 +1,11 @@
 *{
     margin:0;
+    padding:0;
     font-family: 'Zilla Slab', serif;
     box-sizing: border-box; /* el padding y border de ese elemento no incrementan su ancho */
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box; 
 }
-
 
 .clearfix:after {
    content: " "; /* Older browser do not support empty content */
@@ -13,6 +13,10 @@
    display: block;
    height: 0;
    clear: both;
+}
+
+section{
+    padding: 4em 0;
 }
 
 /************* HEADER ****************/
@@ -103,7 +107,7 @@
     display:flex;
     list-style-type: none;
     justify-content: center;
-    margin-top: 30px;
+    margin: 30px;
 }
 
 .social-links > li{
@@ -149,16 +153,16 @@
 
 /************* QUIEN SOY **************/
 
-.who-i-am > header {
+header {
     text-align: center;
-    padding: 4em 0;
+    padding-bottom: 4em;
 }
 
-.who-i-am > header > h3 {
+header > h3 {
     font-size: 3.5em;
 }
 
-.who-i-am > header > span {
+header > span {
     color: #E8AD08;
     letter-spacing: 7px;
     text-transform: uppercase;
@@ -184,3 +188,175 @@
     text-transform: uppercase;
     letter-spacing: 2px;
 }
+
+
+/***************** ESTUDIOS *********************/
+
+.studies{
+    display:block;
+    color:white;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    background: url("../images/studies.jpg") no-repeat top;
+    clear:both;
+    background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    min-height: 515px;
+}
+
+.item-studies{
+    text-align: center;  
+    width: 30%;
+}
+
+h4 {
+    font-size: 1.5em;
+    margin: 0.5em 0;
+    color: #E8AD08;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+/****************** EXPERIENCIA *******************/
+
+.item-experience {
+    padding-bottom: 2em;
+}
+
+.item-experience > .description{
+    border: 1px solid #E8AD08;
+    padding: 2em 4em;
+}
+
+.item-experience > .description > h4{
+    margin-top: 0;
+}
+
+.item-experience > .stage {
+    background: #E8AD08;
+    text-align: center;
+    padding: 2em 0;
+    border: 2px solid #E8AD08;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.item-experience > .date{
+    position: absolute;
+    z-index: -1;
+}
+
+
+.stage:hover{
+  animation: down;
+  -webkit-animation: down;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  animation-fill-mode: both;
+  -webkit-animation-fill-mode:both; 
+}
+
+.description span{
+    font-style: italic;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.bounceInDown{
+    animation: DownUp;
+    -webkit-animation: DownUp;
+    animation-duration: 1.25s;
+    -webkit-animation-duration:1.25s;
+    animation-fill-mode: both;
+    -webkit-animation-fill-mode:both; 
+}
+
+/******************  SOBRE MI *******************/
+
+.about-me{
+    padding-top:0;
+}
+
+.container-interest{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 300px;
+    align-items: center;
+}
+
+.item-interest {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item-interest h5{
+    font-size: 2em;
+    margin: 0.5em 0;
+    color: #E8AD08;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+/******************* FOOTER ***********************/
+
+.footer{
+    clear: both;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-color: #333;
+    
+
+}
+
+.footer > span{
+    margin: 30px;
+}
+
+/******************* ANIMACIONES ******************/
+@keyframes down {
+  from {
+    transform-origin: left bottom;
+    opacity: 1;
+  }
+
+  to {
+    transform-origin: left bottom;
+    transform: translateY(2em);
+    opacity: 1;
+  }
+}
+
+@keyframes DownUp {
+
+  0% {
+    transform: translateY(-2000px);
+  }
+
+  60% {
+    transform: translateY(20px);
+  }
+
+  75% {
+    transform: translateY(-10px);
+  }
+
+  90% {
+    transform: translateY(5px);
+  }
+
+  100% {
+      transform: none;
+  }
+
+}
+
