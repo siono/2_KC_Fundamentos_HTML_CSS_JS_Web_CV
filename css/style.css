@@ -19,6 +19,11 @@ section{
     padding: 4em 0;
 }
 
+body{
+    
+}
+
+
 /************* HEADER ****************/
 .header{
     background: url("../images/background-img.jpg") no-repeat center top;
@@ -28,7 +33,7 @@ section{
 .banner{
     margin: 0 auto;
     text-align: center;
-    padding-top: 6em;
+    padding-top: 12em;
 }
 
 .banner img{
@@ -82,7 +87,7 @@ section{
     display: flex;
 }
 
-.navbar> .navbar-list > .navbar-item a{
+.navbar> .navbar-list a{
     text-decoration: none;
     color: white;
     padding: 20px;
@@ -91,7 +96,7 @@ section{
 }
 
 
-.navbar> .navbar-list > .navbar-item a:hover{
+.navbar> .navbar-list a:hover{
     color: #333;
 }
 
@@ -100,6 +105,14 @@ section{
     font-size: 2em;
 }
 
+.moveRight{
+    animation: LeftRight;
+    -webkit-animation: LeftRight;
+    animation-duration: 1s;
+    -webkit-animation-duration:1s;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode:forwards; 
+}
 
 /*************** SOCIAL LINKS **************/
 
@@ -113,8 +126,8 @@ section{
 .social-links > li{
     
     margin-right: 19px;
-    line-height: 36px;
-    width: 36px;
+    line-height: 40px;
+    width: 40px;
     border: 2px solid white;
     border-radius:50%;
     
@@ -251,8 +264,8 @@ h4 {
 
 
 .stage:hover{
-  animation: down;
-  -webkit-animation: down;
+  animation: Down;
+  -webkit-animation: Down;
   animation-duration: 1s;
   -webkit-animation-duration: 1s;
   animation-fill-mode: both;
@@ -265,7 +278,7 @@ h4 {
     text-transform: uppercase;
 }
 
-.bounceInDown{
+.downUp{
     animation: DownUp;
     -webkit-animation: DownUp;
     animation-duration: 1.25s;
@@ -322,41 +335,63 @@ h4 {
     margin: 30px;
 }
 
-/******************* ANIMACIONES ******************/
-@keyframes down {
-  from {
-    transform-origin: left bottom;
-    opacity: 1;
-  }
 
-  to {
-    transform-origin: left bottom;
-    transform: translateY(2em);
-    opacity: 1;
-  }
+/******************** CONTACTO ********************/
+
+.contact{
+    margin-top: 4em;
 }
 
-@keyframes DownUp {
+.form{
+    background-color: beige;
+    border-radius: 15px;
+    padding: 3em;
+    border-style: outset;
+    border-color: darkgoldenrod;
+}
 
-  0% {
-    transform: translateY(-2000px);
-  }
 
-  60% {
-    transform: translateY(20px);
-  }
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea
+{
+    background: #FCFCFC;
+    border: 1px solid #DDDDDD;
+    padding: 10px;
+    font-size: 16px;
+    width:100%;
+    margin-bottom: 10px;
+}
 
-  75% {
-    transform: translateY(-10px);
-  }
+textarea{
+    height: 320px;
+}
 
-  90% {
-    transform: translateY(5px);
-  }
-
-  100% {
-      transform: none;
-  }
+#enviar{
+    background-color: #E8AD08;
+    color: #FCFCFC;
+    letter-spacing: 2px;
+    border: 1px solid #FCFCFC;
+    padding:10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    width: 100%
 
 }
 
+label{
+    color: #75757D;
+    letter-spacing: 2px;
+    padding-bottom: 5px;
+
+}
+
+.how_know{
+    
+    margin: 10px 0;
+}
+
+.opcion-radio{
+    margin: 10px;
+}

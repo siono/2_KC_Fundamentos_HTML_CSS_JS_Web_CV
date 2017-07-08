@@ -2,55 +2,125 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-     <!-- Styles CSS -->
+    <!-- Styles CSS -->
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" type="text/css" href="./css/grid.css">
+    <link rel="stylesheet" type="text/css" href="./css/animations.css">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Zilla+Slab" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
-
-    <title>José Carlos Esteban - CV & more</title>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>José Carlos Esteban - CV & More</title>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
+    <nav id="menu" class="navbar top">
+        <div class="logo moveRight">
             <h2>
-                <a class="navbar-logo" href="index.html">Info --></a>
+                <a class="navbar-logo" href="index.html"><i class="fa fa-gg fa-inverse" aria-hidden="true"></i></a>
             </h2>
         </div>
         <ul class="navbar-list">
+            <a href="index.html#">
             <li class="navbar-item active">
-                <a href>Inicio</a>
+                Inicio
             </li>
+            </a>
+            <a href="index.html#quien-soy">
             <li class="navbar-item">
-                <a href>Quien soy</a>
+                Quien soy
             </li>
+            </a>
+            <a href="index.html#estudios">
             <li class="navbar-item">
-                <a href>Estudios</a>
+                Estudios
             </li>
+            </a>
+            <a href="index.html#experiencia">
             <li class="navbar-item">
-                <a href>Experiencia</a>
+                Experiencia
             </li>
+            </a>
+            <a href="index.html#sobre-mi">
             <li class="navbar-item">
-                <a href>Sobre mi</a>
+                Sobre mi
             </li>
+            </a>
+            <a href="contact.html">
             <li class="navbar-item">
-                <a href="contact.html">Contacto</a>
-            </li> 
+                Contacto
+            </li>
+            </a>
         </ul>
             
     </nav>
 
     <main class="container">
+        <section class="contact">
+            <header>
+            <h3>Contacto</h3>
+            <span>Envianos cualquier pregunta</span>
+        </header>
+            <form id="form-contact" class="form clearfix" action="" method="get">
 
-        <section class="about-me">
+             <div class="col-6">   
+						
+						<input type="text" id="nombre" name="nombre" placeholder="Nombre" class="inputForm" required>
 
+                        <input type="email" id="email" name="email" placeholder="Email" class="inputForm" 
+						pattern="[A-Za-Z0-9\.\+]+@[A-Za-Z0-9]+\.[A-Za-Z0-9\.]+" required>
+
+                        <input type="number" id="telefono" name="telefono" class="inputForm" placeholder="Teléfono" 
+						pattern="[0-9]{9}" required>
+				
+                
+				
+                    <div class="how_know">
+						<label>¿Como nos conocisteis?:</label>
+                    
+                        <div class="opcion-radio">
+						    <input type="radio" id="how_know_1" name="how_know" value="como nos conocieron" required>
+						    <label for="how_know_1">Internet</label>
+                        </div>
+                        <div class="opcion-radio">
+						    <input type="radio" id="how_know_2" name="how_know" value="tv" required>
+                            <label for="how_know_2">Tv</label>
+                        </div>
+                        <div class="opcion-radio">
+						    <input type="radio" id="how_know_3" name="how_know" required>
+                            <label for="how_know_3">Otros</label>
+                        </div>
+                         <!-- Aqui añadimos el iput text si se selecciona otros-->
+                        <input type="text" id="adsfadf" name="asdfasdf" placeholder="adsfasdf" class="inputForm" required>
+                    </div>
+                        
+                        
+                       
+                    
+                    
+             </div>
+             <div class="col-6">
+                
+                    <textarea name="mensaje" placeholder="Mensaje..." required></textarea>
+                
+            </div>
+            <div class="col-12">
+						<button type="submit" id="enviar">Enviar</button>
+			</div>
+            </form>
         </section>
         
     </main>
 
     <footer class="footer">
-            
+            <span> José Carlos Esteban &copy; 2017  </span>
+            <i class="fa fa-gg fa-inverse fa-3x" aria-hidden="true"></i>
+            <ul class="social-links">
+				<li><a href="https://twitter.com/JcEstebanGo" target="_blank" class="fa fa-twitter"></a></li>
+				<li><a href="https://www.linkedin.com/in/jose-carlos-esteban-82948726/" target="_blank" class="fa fa-linkedin"></a></li>
+				<li><a href="https://plus.google.com/104119479750912914346" target="_blank" class="fa fa-google-plus"></a></li>
+			</ul>
+          
     </footer>
 </body>
 </html>

@@ -4,11 +4,10 @@ for (i=0; i< navbarItems.length; i++){
     navbarItems[i].addEventListener("click", function (event){
         
         var sectionToGo = this.getElementsByTagName("a")[0].href.split("#");
-        
+        console.log(sectionToGo);
         if (sectionToGo.length === 2){
             event.preventDefault();
             var goTo = sectionToGo[sectionToGo.length - 1];
-            console.log(goTo);
             getElementByIdAndScroll(goTo);
         }
 
