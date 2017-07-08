@@ -4,8 +4,10 @@
     font-family: 'Zilla Slab', serif;
     box-sizing: border-box; /* el padding y border de ese elemento no incrementan su ancho */
     -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box; 
+    -moz-box-sizing: border-box;
 }
+
+main { display: block; }
 
 .clearfix:after {
    content: " "; /* Older browser do not support empty content */
@@ -27,7 +29,6 @@ section{
 }
 
 .banner{
-    margin: 0 auto;
     text-align: center;
     padding-top: 12em;
 }
@@ -40,7 +41,7 @@ section{
 
 .banner > h1{
     color:white;
-    margin: 0.4em 0em;
+    margin: 0.4em 0;
     letter-spacing: 6px;
     
 }
@@ -69,10 +70,6 @@ section{
     top: 0;
 }
 
-.bottom{
-    bottom:0;
-}
-
 .navbar a {
    text-decoration: none; 
    color: #333;
@@ -95,9 +92,20 @@ section{
 .navbar> .navbar-list a:hover{
     color: #333;
 }
+.navbar> .navbar-list > .navbar-item a:hover:before{
+    content: "[";
+}
+
+.navbar> .navbar-list > .navbar-item a:hover:after{
+    content: "]";
+}
+
+.logo{
+    width: 55px;
+    height: 55px;
+}
 
 .navbar-logo{
-   font-family: 'Amatic SC', cursive;
     font-size: 2em;
 }
 
@@ -342,6 +350,10 @@ h4 {
     margin-top: 4em;
     width:1200px;
     margin: 0 auto;
+}
+
+.contact > header{
+    padding-top: 4em;
 }
 
 .form{
