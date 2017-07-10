@@ -362,6 +362,7 @@ h4 {
     padding: 3em;
     border-style: outset;
     border-color: darkgoldenrod;
+    margin-bottom: 4em;
 }
 
 
@@ -387,7 +388,7 @@ textarea{
     color: #FCFCFC;
     letter-spacing: 2px;
     border: 1px solid #FCFCFC;
-    padding:10px;
+    padding: 15px;
     border-radius: 4px;
     margin-top: 10px;
     width: 100%
@@ -415,4 +416,21 @@ label{
     bottom: 0;
     width: 100%;
     height: 4em;
+}
+
+.msg_error{
+    letter-spacing: 2px;
+    margin-left: 1em;
+    margin-right: 1em;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.has_error{
+    border: 1px solid #a94442 !important;
 }
