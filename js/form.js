@@ -1,32 +1,39 @@
 var form = document.getElementById("form-contact");
 var how_know = document.getElementsByName("how_know");
 
-//creamos el input cuando seleccionas Otros.
-
-var inputOtros = document.createElement("input");
-inputOtros.setAttribute("id","otros");
-inputOtros.setAttribute("type","text");
-inputOtros.setAttribute("name","otros");
-inputOtros.setAttribute("placeholder","¿De que otra forma nos conocistes?");
-inputOtros.setAttribute("required","");
-
+var inputOtros;
 var visibilityInputOtros = false;
-//si seleccionamos Otros insertamos el iput. Si seleccionamos otra opcion y existe lo borramos.
+
+//Input Otros
 for (var i = 0; i < how_know.length; i++ ){
     how_know[i].addEventListener("click",function(event){
         if (this.value == "otros"){
-            visibilityInputOtros = true;
-            this.parentNode.parentNode.appendChild(inputOtros);
-        }else  if ((this.value == "internet") || (this.value == "tv")){
-            if (document.getElementById("otros")){
-            this.parentNode.parentNode.removeChild(inputOtros);
-            visibilityInputOtros = false;
+            //si no existe el input lo creo
+            if (!inputOtros){
+                inputOtros = document.createElement("input");
+                inputOtros.setAttribute("id","otros");
+                inputOtros.setAttribute("type","text");
+                inputOtros.setAttribute("name","otros");
+                inputOtros.setAttribute("placeholder","¿De que otra forma nos conocistes?");
+                inputOtros.setAttribute("required","");
+                visibilityInputOtros = true;
+                this.parentNode.parentNode.appendChild(inputOtros);
             }
-            
+       
+        }else  if ((this.value == "internet") || (this.value == "tv")){
+            //si selecciono cualquier otro radio borro inputOtros.
+            if (document.getElementById("otros")){
+            //si tiene la clase error la borro.
+                if (inputOtros.classList.contains("has_error")){
+                    inputOtros.classList.remove("has_error");
+                }
+                this.parentNode.parentNode.removeChild(inputOtros);
+                visibilityInputOtros = false;
+            }
         }
-    })
-    
+    }) 
 }
+
 
 form.addEventListener("submit",function(event){
 
@@ -36,20 +43,8 @@ form.addEventListener("submit",function(event){
     var mensaje = document.getElementsByName("mensaje")[0];
     var error = document.getElementById("error");
 
-    //cada vez que doy a enviar tengo que borrar todos los mensajes de error y la clases de error.
-    var elementsError = document.getElementsByClassName("has_error");
-
-    //si existen mensajes de error los borramos.
-    if ( elementsError.length > 0){
-        event.preventDefault();
-        for (var i = 0; i < elementsError.length; i++) {
-            elementsError[i].classList.remove("has_error");
-        }
-        document.getElementById("error").innerHTML = "";
-          
-    }
-
-       
+    deleteMsgError();
+  
     //Nombre
     if (inputNombre.checkValidity() == false){
        
@@ -89,7 +84,7 @@ form.addEventListener("submit",function(event){
        
         event.preventDefault();
         inputTelefono.setAttribute("class","has_error");
-        var textError = document.createTextNode("Introduzca un teléfono válido (9 dígitos)");
+        var textError = document.createTextNode("Introduzca un teléfono válido (9 dígitos) y el prefijo opcional");
         var pError = document.createElement("p");
         pError.setAttribute("class","msg_error");
         pError.appendChild(textError);
@@ -100,7 +95,6 @@ form.addEventListener("submit",function(event){
     }
 
     //Como nos conocisteis -> Otros
-    
     
     if (visibilityInputOtros){
     if (inputOtros.checkValidity()== false){
@@ -144,6 +138,20 @@ function countWords(cadena, maxWord){
         return true;
     else{
         return false;
+    }
+}
+
+
+function deleteMsgError(){
+    
+    var elementsError = document.getElementsByClassName("has_error");
+    document.getElementById("error").innerHTML = ""; //inicializo el div sin errores.
+
+    //si existen clases con error los borramos.
+    if ( elementsError.length > 0){
+        for (var i = 0; i < elementsError.length; i++) {
+            elementsError[i].classList.remove("has_error");
+        }     
     }
 }
 });
