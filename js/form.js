@@ -18,6 +18,7 @@ for (var i = 0; i < how_know.length; i++ ){
                 inputOtros.setAttribute("required","");
                 visibilityInputOtros = true;
                 this.parentNode.parentNode.appendChild(inputOtros);
+                
             }
        
         }else  if ((this.value == "internet") || (this.value == "tv")){
@@ -109,6 +110,9 @@ form.addEventListener("submit",function(event){
        
         return false;
     }
+        //asignamos el valor del radio otros sea el valor del input Otros y deshabilamos el input para que no se envie.
+        document.getElementById("how_know_3").value = inputOtros.value; 
+        inputOtros.setAttribute("disabled","disabled");
     }
     
 

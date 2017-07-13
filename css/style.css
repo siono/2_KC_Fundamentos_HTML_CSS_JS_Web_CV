@@ -383,7 +383,7 @@ textarea{
     height: 320px;
 }
 
-#enviar{
+#sendNewClient{
     background-color: #E8AD08;
     color: #FCFCFC;
     letter-spacing: 2px;
@@ -433,4 +433,71 @@ label{
 
 .has_error{
     border: 1px solid #a94442 !important;
+}
+
+/******************* CLIENTES ***************************/
+
+.users > header {
+    padding: 4em 0;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    width: 200px;
+    height: 100px;
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+th {
+    background-color: #333;
+    color:white;
+    text-align: center;
+}
+
+td.clients-item-buttom {
+    border: none;
+    background: white;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.btn-send{
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    margin: 0 2px;
 }
