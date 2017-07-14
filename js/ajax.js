@@ -13,7 +13,7 @@ var drawClients = function() {
             '<td class="clients-item">' + clients[i].telefono + '</td>'+
             '<td class="clients-item">' + clients[i].how_know + '</td>'+
             '<td class="clients-item">' + clients[i].mensaje + '</td>'+           
-            '<td class="clients-item-buttom"><a class="btn btn-danger deleteClient data-client-id="' + clients[i].id + '"><i class="fa fa-trash-o" aria-hidden="true"></i></a><a class="btn btn-send" href="mailto:'+clients[i].email+'?Subject=Contestación para ' +clients[i].nombre+ '" data-client-id="' + clients[i].id + '"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a></td></tr>'
+            '<td class="clients-item-buttom"><a class="btn btn-danger deleteClient" data-clientId="'+ clients[i].id + '"><i class="fa fa-trash-o" aria-hidden="true"></i></a><a class="btn btn-send" href="mailto:'+clients[i].email+'?Subject=Contestación para ' +clients[i].nombre+ '"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a></td></tr>'
             
         }
 
@@ -51,7 +51,6 @@ var createClient = function (nombre,email,telefono,conocisteis,mensaje) {
     XHR.onreadystatechange = function () {
         if (XHR.readyState === 4) {
             clients.push(JSON.parse(XHR.responseText));
-            //drawTasks();
         } else if (XHR.readyState === 4 && XHR.status === 404) {
             console.log("Página no encontrada");
         }
@@ -60,30 +59,18 @@ var createClient = function (nombre,email,telefono,conocisteis,mensaje) {
     XHR.send(JSON.stringify({"nombre": nombre, "email": email, "telefono": telefono, "how_know": conocisteis, "mensaje": mensaje }));
 }
 
-var enviarFormulario = document.getElementById("sendNewClient");
 
-if (enviarFormulario != null){
-
-enviarFormulario.addEventListener("click", function (event) {
-    event.preventDefault();
-    createClient(document.getElementById("nombre").value, document.getElementById("email").value, document.getElementById("telefono").value,document.getElementsByName("how_know")[0].value, document.getElementById("mensaje").value );
-    //TODO: timer de 3 segundos y vaciar el formulario enviando mensaje de "se ha enviado tu pregunta en breves nos pondremos en contacto contigo"
-
-
-})
-}
-
-/*
 
 var deleteClient = function (id) {
     var XHR = new XMLHttpRequest();
-    XHR.open("DELETE", "http://localhost:8000/api/users/" + id, true);
+    XHR.open("DELETE", "http://localhost:8000/api/users/"+id, true);
     XHR.setRequestHeader("Content-Type", "application/json");
 
     XHR.onreadystatechange = function () {
         if (XHR.readyState === 4) {
-            window.alert("Client deleted!");
-            getTasks();
+            //window.alert("Client deleted!");
+            //TODO: confirmar borrado con mensaje OK-CANCEL.
+            getClients();
         } else if (XHR.readyState === 4 && XHR.status === 404) {
             console.log("Página no encontrada");
         }
@@ -92,13 +79,7 @@ var deleteClient = function (id) {
     XHR.send();
 }
 
-window.addEventListener("load",function(){
-
-var borrarClientes = document.getElementsByClassName("deleteClient");
-
-for (var i = 0; i < borrarClientes.length; i++) {
-    var id = borrarClientes[i].getAttribute("data-client-id")
-    borrarClientes[i].addEventListener('click', deleteClient(id), false);
-}
-})
-*/
+$(document).on('click', '.deleteClient', function(){
+    var id = $(this).attr('data-clientid');
+	deleteClient(id);
+});

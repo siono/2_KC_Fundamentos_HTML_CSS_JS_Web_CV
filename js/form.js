@@ -1,5 +1,6 @@
 var form = document.getElementById("form-contact");
 var how_know = document.getElementsByName("how_know");
+var enviarFormulario = document.getElementById("sendNewClient");
 
 var inputOtros;
 var visibilityInputOtros = false;
@@ -36,13 +37,13 @@ for (var i = 0; i < how_know.length; i++ ){
 }
 
 
-form.addEventListener("submit",function(event){
+
+enviarFormulario.addEventListener("click", function (event) {
 
     var inputNombre = document.getElementById("nombre");
     var inputEmail = document.getElementById("email");
     var inputTelefono = document.getElementById("telefono");
     var mensaje = document.getElementsByName("mensaje")[0];
-    var error = document.getElementById("error");
 
     deleteMsgError();
   
@@ -50,15 +51,9 @@ form.addEventListener("submit",function(event){
     if (inputNombre.checkValidity() == false){
        
         event.preventDefault();
-
-        var textError = document.createTextNode("Introduzca un nombre válido");
-        var pError = document.createElement("p");
-        pError.setAttribute("class","msg_error");
-        pError.appendChild(textError);
-        error.appendChild(pError);
-
+        createMsg("error","Introduzca un nombre válido");
         inputNombre.setAttribute("class","has_error");
-        
+     
         return false;
           
     }
@@ -67,15 +62,9 @@ form.addEventListener("submit",function(event){
     if (inputEmail.checkValidity() == false){
        
         event.preventDefault();
-
-        var textError = document.createTextNode("Introduzca un email válido");
-        var pError = document.createElement("p");
-        pError.setAttribute("class","msg_error");
-        pError.appendChild(textError);
-        error.appendChild(pError);
-
+        createMsg("error","Introduzca un email válido");
         inputEmail.setAttribute("class","has_error");
-        
+       
         return false;
           
     }
@@ -84,33 +73,23 @@ form.addEventListener("submit",function(event){
     if (inputTelefono.checkValidity() == false){
        
         event.preventDefault();
+        createMsg("error","Introduzca un teléfono válido (9 dígitos) y el prefijo opcional");
         inputTelefono.setAttribute("class","has_error");
-        var textError = document.createTextNode("Introduzca un teléfono válido (9 dígitos) y el prefijo opcional");
-        var pError = document.createElement("p");
-        pError.setAttribute("class","msg_error");
-        pError.appendChild(textError);
-        error.appendChild(pError);
        
         return false;
           
     }
 
     //Como nos conocisteis -> Otros
-    
     if (visibilityInputOtros){
     if (inputOtros.checkValidity()== false){
 
             event.preventDefault();
+            createMsg("error","Si selecciona Otros, debes especificar el valor");
             inputOtros.setAttribute("class","has_error");
-            var textError = document.createTextNode("Si selecciona Otros, debes especificar el valor");
-            var pError = document.createElement("p");
-            pError.setAttribute("class","msg_error");
-            pError.appendChild(textError);
-            error.appendChild(pError);
-       
-        return false;
+
+            return false;
     }
-        //asignamos el valor del radio otros sea el valor del input Otros y deshabilamos el input para que no se envie.
         document.getElementById("how_know_3").value = inputOtros.value; 
         inputOtros.setAttribute("disabled","disabled");
     }
@@ -120,20 +99,40 @@ form.addEventListener("submit",function(event){
     if (!countWords(mensaje.value,150)){
         
         event.preventDefault();
+        createMsg("error","Introduzca un mensaje (max. 150 palabras)");
         mensaje.setAttribute("class","has_error");
-        var textError = document.createTextNode("Introduzca un mensaje (max. 150 palabras)");
-        var pError = document.createElement("p");
-        pError.setAttribute("class","msg_error");
-        pError.appendChild(textError);
-        error.appendChild(pError);
-       
+        
         return false;
     }
 
+    event.preventDefault();
+    createClient(document.getElementById("nombre").value, document.getElementById("email").value, document.getElementById("telefono").value,document.getElementsByName("how_know")[0].value, document.getElementById("mensaje").value );
+    window.setTimeout(function(){
+        
+        createMsg("success","¡Formulario enviado correctamente! En breves, nos pondremos en contacto contigo.");
+        form.reset();
+
+    },3000);
+
+});
+
+function createMsg(type,msg){
+    var divContainer = document.getElementById(type);
+    var textMsg = document.createTextNode(msg);
+    var p = document.createElement("p");
+    if (type=="success"){
+        p.setAttribute("class","msg_success");
+    }
+    if (type=="error"){
+        p.setAttribute("class","msg_error");
+    }
+    p.appendChild(textMsg);
+    divContainer.appendChild(p);
+}
 
 
 function countWords(cadena, maxWord){
-    //eliminamos los especios varios espacios en blanco y hacemos split.
+    //eliminamos espacios duplicados y separamos por palabras.
     var result = cadena.trim().split(" ");
     if ((result.length > 1) && (result.length <= maxWord)){
         return true;
@@ -158,4 +157,3 @@ function deleteMsgError(){
         }     
     }
 }
-});

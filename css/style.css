@@ -424,10 +424,21 @@ label{
     margin-right: 1em;
     color: #a94442;
     background-color: #f2dede;
-    border-color: #ebccd1;
     padding: 15px;
     margin-bottom: 20px;
     border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.msg_success{
+    letter-spacing: 2px;
+    margin-left: 1em;
+    margin-right: 1em;
+    color: #F5F5DC;
+    background-color: #A5DC7A;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid;
     border-radius: 4px;
 }
 
@@ -445,6 +456,7 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    margin-bottom: 200px;
 }
 
 td, th {
