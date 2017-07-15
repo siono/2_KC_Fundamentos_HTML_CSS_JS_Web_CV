@@ -106,15 +106,20 @@ enviarFormulario.addEventListener("click", function (event) {
     }
 
     event.preventDefault();
+    enviarFormulario.setAttribute("disabled","disabled");
     createClient(document.getElementById("nombre").value, document.getElementById("email").value, document.getElementById("telefono").value,document.getElementsByName("how_know")[0].value, document.getElementById("mensaje").value );
     window.setTimeout(function(){
         
         createMsg("success","¡Formulario enviado correctamente! En breves, nos pondremos en contacto contigo.");
+        enviarFormulario.removeAttribute("disabled");
         form.reset();
 
     },3000);
 
+    
 });
+
+
 
 function createMsg(type,msg){
     var divContainer = document.getElementById(type);
@@ -157,3 +162,4 @@ function deleteMsgError(){
         }     
     }
 }
+

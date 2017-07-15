@@ -1,10 +1,12 @@
 var clients = [];
 
+if (window.location.pathname === "/users.html"){
+
 var drawClients = function() {
 	$('#clientContainer').empty();
 
 	if (clients.length == 0) {
-		$('#clientContainer').append("<li>No hay clientes con preguntas</li>");
+		$('#clientContainer').append('<p class="msg_warning"><i class="fa fa-exclamation-triangle" aria-hidden="true"> No hay clientes con preguntas</i></p>');
 	} else {
 		var contentToAdd = '<table><tr><th>Nombre</th><th>Email</th><th>Teléfono</th><th>¿Como nos conoció?</th><th>Mensaje</th></tr><tr>';
 		for (var i = 0; i < clients.length; i++) {
@@ -43,6 +45,34 @@ var getClients = function () {
 getClients();
 
 
+var deleteClient = function (id) {
+    var XHR = new XMLHttpRequest();
+    XHR.open("DELETE", "http://localhost:8000/api/users/"+id, true);
+    XHR.setRequestHeader("Content-Type", "application/json");
+
+    XHR.onreadystatechange = function () {
+        if (XHR.readyState === 4) {
+            getClients();
+        } else if (XHR.readyState === 4 && XHR.status === 404) {
+            console.log("Página no encontrada");
+        }
+    }
+
+    XHR.send();
+}
+
+
+    $(document).on('click', '.deleteClient', function(){
+        
+        var id = $(this).attr('data-clientid');
+
+        if (window.confirm("Desea borrar el cliente con id="+id)){
+            deleteClient(id);
+        }
+    });
+}
+
+
 var createClient = function (nombre,email,telefono,conocisteis,mensaje) {
     var XHR = new XMLHttpRequest();
     XHR.open("POST", "http://localhost:8000/api/users", true);
@@ -58,28 +88,3 @@ var createClient = function (nombre,email,telefono,conocisteis,mensaje) {
 
     XHR.send(JSON.stringify({"nombre": nombre, "email": email, "telefono": telefono, "how_know": conocisteis, "mensaje": mensaje }));
 }
-
-
-
-var deleteClient = function (id) {
-    var XHR = new XMLHttpRequest();
-    XHR.open("DELETE", "http://localhost:8000/api/users/"+id, true);
-    XHR.setRequestHeader("Content-Type", "application/json");
-
-    XHR.onreadystatechange = function () {
-        if (XHR.readyState === 4) {
-            //window.alert("Client deleted!");
-            //TODO: confirmar borrado con mensaje OK-CANCEL.
-            getClients();
-        } else if (XHR.readyState === 4 && XHR.status === 404) {
-            console.log("Página no encontrada");
-        }
-    }
-
-    XHR.send();
-}
-
-$(document).on('click', '.deleteClient', function(){
-    var id = $(this).attr('data-clientid');
-	deleteClient(id);
-});

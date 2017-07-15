@@ -395,6 +395,13 @@ textarea{
 
 }
 
+#sendNewClient:disabled,
+#sendNewClient[disabled]{
+  border: 1px solid #999999;
+  background-color: #eee;
+  color: #666666;
+}
+
 label{
     color: #75757D;
     letter-spacing: 2px;
@@ -439,6 +446,19 @@ label{
     padding: 15px;
     margin-bottom: 20px;
     border: 1px solid;
+    border-radius: 4px;
+}
+
+.msg_warning{
+    letter-spacing: 2px;
+    margin-left: 1em;
+    margin-right: 1em;
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
     border-radius: 4px;
 }
 
