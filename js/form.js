@@ -44,9 +44,12 @@ enviarFormulario.addEventListener("click", function (event) {
     var inputEmail = document.getElementById("email");
     var inputTelefono = document.getElementById("telefono");
     var mensaje = document.getElementsByName("mensaje")[0];
+    
+    console.log(como_nos_conocisteis);
 
-    deleteMsgError();
-  
+
+    deleteMsg();
+
     //Nombre
     if (inputNombre.checkValidity() == false){
        
@@ -95,6 +98,8 @@ enviarFormulario.addEventListener("click", function (event) {
     }
     
 
+    var como_nos_conocisteis = document.querySelector('input[name="how_know"]:checked').value;
+
     //mensaje    
     if (!countWords(mensaje.value,150)){
         
@@ -107,7 +112,7 @@ enviarFormulario.addEventListener("click", function (event) {
 
     event.preventDefault();
     enviarFormulario.setAttribute("disabled","disabled");
-    createClient(document.getElementById("nombre").value, document.getElementById("email").value, document.getElementById("telefono").value,document.getElementsByName("how_know")[0].value, document.getElementById("mensaje").value );
+    createClient(inputNombre.value, inputEmail.value, inputTelefono.value, como_nos_conocisteis, mensaje.value );
     window.setTimeout(function(){
         
         createMsg("success","¡Formulario enviado correctamente! En breves, nos pondremos en contacto contigo.");
@@ -135,6 +140,21 @@ function createMsg(type,msg){
     divContainer.appendChild(p);
 }
 
+function deleteMsg(){
+    
+    var elementsError = document.getElementsByClassName("has_error");
+    document.getElementById("error").innerHTML = ""; //inicializo el div sin errores.
+
+    //si existen clases con error los borramos.
+    if ( elementsError.length > 0){
+        for (var i = 0; i < elementsError.length; i++) {
+            elementsError[i].classList.remove("has_error");
+        }     
+    }
+
+    document.getElementById("success").innerHTML = ""; 
+}
+
 
 function countWords(cadena, maxWord){
     //eliminamos espacios duplicados y separamos por palabras.
@@ -150,16 +170,5 @@ function countWords(cadena, maxWord){
 }
 
 
-function deleteMsgError(){
-    
-    var elementsError = document.getElementsByClassName("has_error");
-    document.getElementById("error").innerHTML = ""; //inicializo el div sin errores.
 
-    //si existen clases con error los borramos.
-    if ( elementsError.length > 0){
-        for (var i = 0; i < elementsError.length; i++) {
-            elementsError[i].classList.remove("has_error");
-        }     
-    }
-}
 
