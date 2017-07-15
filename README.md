@@ -9,3 +9,4 @@ En ella ponemos en práctica lo dado en este módulo.
 * Animaciones
 * Javascript
 * Ajax
+* Compatibilidad entre diferentes navegadores ( IE 11, Chrome, Firefox ...).
